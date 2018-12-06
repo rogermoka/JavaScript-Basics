@@ -1,30 +1,22 @@
+// Speed limit = 70
+// 5 -> 1 point
+// Math.floor(1.3);
+// 12 points -> suspend
 
-// Divisible by 3 => Fizz
-// Divisible by 5 => Buzz
-// Divisible by both 3 and 5 => FizzBuzz
-// Not divisible by 3 or 5 => input
-// Not a number => 'Not a number'
+checkSpeed(50);
 
-const output = fizzBuzz('16asdasd');
-console.log(output);
+function checkSpeed(speed) {
+    const speedLimit = 70;
+    const kmPerPoint = 5;
 
-function fizzBuzz(input) {
-
-    if (isNaN(input)){
-        return 'Not a number'
-    }
-    
-    if (input % 3 === 0 && input % 5 === 0){
-        return 'FizzBuzz'
-    }
-    
-    if (input % 3 === 0){
-        return 'Fizz'
+    if (speed < speedLimit + kmPerPoint) {
+        console.log('Ok');
+        return;
     }
 
-    if (input % 5 === 0){
-        return 'Buzz'
-    }
-    
-    return input
+    const points = Math.floor((speed - speedLimit) / kmPerPoint);
+    if (points >= 12)
+        console.log('License suspended');
+    else
+        console.log('Points', points);
 }
