@@ -1,22 +1,14 @@
-// Speed limit = 70
-// 5 -> 1 point
-// Math.floor(1.3);
-// 12 points -> suspend
+const movie = {
+    title: 'a',
+    releaseYear: 2018,
+    rating: 4.5,
+    director: 'b'
+};
 
-checkSpeed(50);
+showProperties(movie);
 
-function checkSpeed(speed) {
-    const speedLimit = 70;
-    const kmPerPoint = 5;
-
-    if (speed < speedLimit + kmPerPoint) {
-        console.log('Ok');
-        return;
-    }
-
-    const points = Math.floor((speed - speedLimit) / kmPerPoint);
-    if (points >= 12)
-        console.log('License suspended');
-    else
-        console.log('Points', points);
+function showProperties(obj) {
+    for (let key in obj)
+        if(typeof obj[key] === 'string')
+            console.log(key, obj[key]);
 }
